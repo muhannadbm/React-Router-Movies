@@ -24,7 +24,8 @@ export default function Movie(props) {
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { }
+  const saveMovie = (id) => { 
+  props.add(id)  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -50,7 +51,7 @@ export default function Movie(props) {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={()=> saveMovie(id)}>Save</div>
     </div>
   );
 }
