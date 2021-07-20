@@ -32,17 +32,18 @@ export default function App () {
 
   const addToSavedList = id => {
     // This is stretch. Prevent the same movie from being "saved" more than once
+  
     let myitem = movieList.find(item => item.id == id)
     let newarr = [...saved]
+    if(!newarr.includes(myitem)){
     newarr.push(myitem)
-    setSaved(newarr)
-    console.log(`inside click saved is ${saved}`)
+    setSaved(newarr) }
+    else{ console.log('Item already saved !')}
   };
 
   return (
     <div>
       <SavedList  list={saved} />
-      {console.log(`inside template${saved}`)}
       <div>
         <Switch>
         <Route path='/movies/:id'>

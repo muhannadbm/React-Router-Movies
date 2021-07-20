@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 export default function SavedList(props) {
-  {console.log(`inside saved list ${props.list}`)}
+
   return (
 
     <div className="saved-list">
