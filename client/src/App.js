@@ -25,21 +25,24 @@ export default function App () {
     getMovies();
   }, []);
 
+  useEffect(()=> {
 
+  },[saved])
 
 
   const addToSavedList = id => {
     // This is stretch. Prevent the same movie from being "saved" more than once
-    console.log(`your id is${id}`)
-    console.log(`saved inside click is ${saved}`)
-    setSaved([id])
+    let myitem = movieList.find(item => item.id == id)
+    let newarr = [...saved]
+    newarr.push(myitem)
+    setSaved(newarr)
     console.log(`inside click saved is ${saved}`)
   };
 
   return (
     <div>
       <SavedList  list={saved} />
-
+      {console.log(`inside template${saved}`)}
       <div>
         <Switch>
         <Route path='/movies/:id'>
